@@ -1,0 +1,65 @@
+header #menu{
+	text-align: center;
+}
+
+header #menu h3 {
+	padding-left: 5px;
+	border-left: solid 1px #E8E8E8;
+	font-size: 22px;
+}
+.titulo {
+    display: inline-block;
+    width: 50%;
+}
+img#logoDimarlab{
+  display: inline-block;
+  width: 100px;
+  vertical-align: middle;
+}
+div#example_wrapper {
+    box-shadow: 2px 2px 5px #F3B6D7;
+    -webkit-box-shadow: 2px 2px 5px #F3B6D7;
+	-moz-box-shadow: 2px 2px 5px #F3B6D7;
+    margin-top: 6px;
+}
+header {
+    border-bottom: 2px #efefef solid;
+}
+div#example_length {
+    margin: 5px 0px 0px 30px;
+}
+div#example_filter {
+    margin-right: 10px;
+    margin-top: 5px;
+}
+button {
+    color: #fff;
+    text-decoration: none;
+    background: red;
+    padding: 9px;
+    border-radius: 5px;
+    border: 0px;
+}
+button:hover {
+ text-decoration: none;
+ color: #EFDFDF;
+}
+div#ingresarCotizacion {
+    display: inline-block;
+}
+input[type="search"] {
+    border-radius: 6px;
+    border: 1px #FF5722 solid;
+}
+.form-group {
+    text-align: left;
+}
+div#consultaCentrar {
+    margin-left: 5%;
+}
+.modalbody {
+    margin: 20px 35px;
+}
+div#example_info {
+    margin-left: 15px;
+}
