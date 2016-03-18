@@ -14,7 +14,7 @@ if(isset($_SESSION['Usuario']) && empty($_POST['idUsuario'])){
   ini_set("error_log','error/php_errors.log");
 
   $usuario = $_SESSION['Usuario'];
-  $idUsuario = $_POST['idUsuario'];
+  $idUsuario = $_SESSION['idUsuario'];
  ?>
 <!DOCTYPE html>
 <html lang="es">
