@@ -56,8 +56,8 @@ class clProducto
 		
 		$oConexion = new conectorDB;
 		$registrar = false;
-		 
-		this.limpiarDebilesProductos($idProducto);
+		$clProducto = new clProducto; 
+		$clProducto->limpiarDebilesProductos($idProducto);
 		/*EIMINAMOS DE PRODUCTOS*/
 		$query  = "DELETE FROM producto WHERE idProducto=:idProducto";
 		$valores = array(
@@ -89,12 +89,6 @@ class clProducto
 		$valoresMarca = array(
 			"idProducto"	=> $idProducto);		
 		$registrar = $oConexion->consultarBD($query, $valoresMarca);
-		
-		/*EIMINAMOS DE PRODUCTOS*/
-		$query  = "DELETE FROM producto WHERE idProducto=:idProducto";
-		$valores = array(
-			"idProducto"	=> $idProducto);
-		$registrar = $oConexion->consultarBD($query, $valores);
 		
 		}
 		

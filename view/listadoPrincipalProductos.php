@@ -34,7 +34,7 @@ $Consulta  = $oConectar->consultarBD($consulta);
 	?></font></div>
 				<p class="consultaParrafo p-marca"><?php print($rows['nomComercial']);?></p>
 				<p class="consultaParrafo">Código referencia: <?php print($rows['codigoReferencia']);?></p>
-				<p class="consultaParrafo">Marca: <?php print($rowm['marca']);?></p>
+				<p class="consultaParrafo">Marca: <?php print($rowm['idMarca']);?></p>
 			</div>
 		</td>
 	<?php }?>
