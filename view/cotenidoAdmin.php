@@ -100,7 +100,7 @@
       <div class="modal-body-ingresaProductos">
 
 			<!-- INICIO DEL FORMULARIO -->
-        <form action="controller/php/ingresarProductos.php"  name="alta_frm" method="post" enctype="multipart/form-data">
+        <form action="controller/php/insertProductos.php"  name="alta_frm" method="post" enctype="multipart/form-data">
              <div class="form-group">
                 <label for="codigoBarra" class="control-label">Código de barra</label>
                 <input type="text" name="codigoBarra" id="codigoBarra" class="form-control" id="recipient-name">
@@ -123,7 +123,7 @@
               </div>
                 <div class="form-group desEsp">
       	        	<label for="salud" class="control-label">Descripción salud</label>
-      	        	<select  class= "form-control" name="salud" id="salud" >
+      	        	<select  class= "form-control" name="institucion" id="salud" >
                   <option> -- -- -- -- </option>
       			  		<option value="1"> Juan Graham </option>
       			  		<option value="2"> Rovirosa </option>
@@ -131,9 +131,9 @@
       			  		<option value="4"> Almecen secretaria de salud </option>
           				</select>
           				<br>
-          				<TEXTAREA  type="text" name="claveSalud" id="claveSalud" placeholder="Clave " class="form-control" id="recipient-name" ></TEXTAREA>
+          				<TEXTAREA  type="text" name="claveInstitucion" id="claveInstitucion" placeholder="Clave " class="form-control" id="recipient-name" ></TEXTAREA>
           				<br>
-      	            <TEXTAREA type="text" name="descripcionSalud" id="descripcionSalud" title="Descripción" placeholder="Descripción" class="form-control" id="recipient-name" ></TEXTAREA>
+      	            <TEXTAREA type="text" name="descripcionInstitucion" id="descripcionInstitucion" title="Descripción" placeholder="Descripción" class="form-control" id="recipient-name" ></TEXTAREA>
       	        </div>
                 <div class="form-group">
                   <label for="proveedor" class="control-label">Proveedor del producto</label>

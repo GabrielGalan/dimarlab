@@ -23,7 +23,7 @@ $pass = $_POST['contrasena'];
   $parseEncript = '3dd#ce#DVCD#SSE#d24';
   $password = hash('sha256', $parseEncript . $pass);
 
- $consulta = "SELECT at_user, at_pass, id_usuario, at_nombre FROM tbl_user WHERE at_user = '".$usuario."' AND at_pass = '".$password."'";
+ $consulta = "SELECT at_user, at_pass, id_usuario, at_nombre FROM user WHERE at_user = '".$usuario."' AND at_pass = '".$password."'";
     $valores = null;
                                             
        $Vconsulta = $oConectar->consultarBD($consulta); 
