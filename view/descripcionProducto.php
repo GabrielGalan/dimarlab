@@ -2,7 +2,7 @@
 include '../controller/php/clase.php';
 $idProducto       = $_GET['q'];
 $Conectar         = new conectorDB;//instanciamos conector
-$consultaProducto = "SELECT producto.idProducto, producto.nomComercial, producto.codigoBarra, producto.codigoReferencia, producto.observacion, producto.claveCuadroBasico, producto.descripcionCuadroBasico, tbl_marca.idProducto, tbl_marca.marca, tbl_proveedores.idProducto, tbl_proveedores.proveedor FROM producto JOIN ( tbl_marca, tbl_proveedores) where producto.idProducto = '$idProducto' AND  producto.idProducto = tbl_marca.idProducto and producto.idProducto = tbl_proveedores.idProducto";
+$consultaProducto = "SELECT producto.idProducto, producto.nomComercial, producto.codigoBarra, producto.codigoReferencia, producto.observacion, producto.claveCuadroBasico, producto.descripcionCuadroBasico, producto_marcas.idProducto, producto_marcas.idMarca, producto_proveedores.idProducto, producto_proveedores.idProveedor FROM producto JOIN ( producto_marcas, producto_proveedores) where producto.idProducto = '$idProducto' AND  producto.idProducto = producto_marcas.idProducto and producto.idProducto = producto_proveedores.idProducto";
 
 $ConsultaP = $Conectar->consultarBD($consultaProducto);
 
@@ -38,7 +38,7 @@ foreach ($ConsultaRImagen as $rowss) {
 	    </div>
 	<?php }?>
 		    <?php
-$consultaSalud  = "SELECT nombreInstitucion, claveSalud, descripcionSalud FROM tbl_salud where idProducto = '$idProducto'";
+$consultaSalud  = "SELECT nombreInstitucion, claveSalud, descripcionSalud FROM clavesdescripciones where idProducto = '$idProducto'";
 $ConsultaRSalud = $Conectar->consultarBD($consultaSalud);
 ?>
 </div>

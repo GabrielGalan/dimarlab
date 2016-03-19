@@ -40,7 +40,7 @@
 		<form>
 		  <div class="form-group">
 		    <label for="codigoReferencia">Código de barra</label>
-		    <input class="form-control" type="text" onkeyup="BuscarCodigoBarra();" id="valorCodigoBarra" placeholder="Código de referencia" id="codigoReferencia">
+		    <input class="form-control" type="text" id="buscarProducto" placeholder="Código de referencia" id="codigoReferencia">
 		  </div>
 		  <div class="form-group">
 		    <label for="codigoReferencia">Código de referencia</label>

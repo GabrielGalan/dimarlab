@@ -7,16 +7,18 @@ $Consulta  = $oConectar->consultarBD($consulta);
 
 ?>
 <div class="table-responsive">
-	<table class="table">
-		<tr>
+	<table id="my-table" class="table">
+		
 <?php foreach ($Consulta as $rows) {
 
 	$consultaImagen  = "SELECT * FROM imagen where idProducto = '$rows[idProducto])'";
 	$ConsultaRImagen = $oConectar->consultarBD($consultaImagen);
 	foreach ($ConsultaRImagen as $row) {}
-	$consultaMarca  = "SELECT * FROM tbl_marca where idProducto = '$rows[idProducto])'";
+
+	$consultaMarca  = "SELECT * FROM producto_marcas where idProducto = '$rows[idProducto])'";
 	$ConsultaRMarca = $oConectar->consultarBD($consultaMarca);
 	foreach ($ConsultaRMarca as $rowm) {}
+
 	if ($rows['terminado'] == '0' or $rows['terminado'] == null) {
 		$banner = "banner incompleto";
 		$estado = "INCOMPLETO";
@@ -25,6 +27,7 @@ $Consulta  = $oConectar->consultarBD($consulta);
 		$estado = "COMPLETO";
 	}
 	?>
+	<tr>
 		<td>
 			<div id="idProducto" onclick="buscarProducto(<?php print($rows['idProducto']);?>);" class="agregaP" style="cursor:pointer;">
 				<img src="<?php print($row['direccion']);?>">
@@ -35,7 +38,8 @@ $Consulta  = $oConectar->consultarBD($consulta);
 				<p class="consultaParrafo">Marca: <?php print($rowm['marca']);?></p>
 			</div>
 		</td>
+	</tr>	
 	<?php }?>
-		</tr>
+		
 	</table>
 	</div>

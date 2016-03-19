@@ -28,9 +28,10 @@ if(isset($_SESSION['Usuario']) && empty($_POST['idUsuario'])){
  <link rel="stylesheet" href="dist/css/bootstrap-select.css">
 <link href="view/css/style.css" rel="stylesheet"> 
 <script src="view/js/jquery-1.11.3.min.js"></script>
- <script src="dist/js/bootstrap-select.js"></script> 
- <script src="view/js/bootstrap.min.js"></script>
+<script src="dist/js/bootstrap-select.js"></script> 
+<script src="view/js/bootstrap.min.js"></script>
 <script src="view/js/script.js"></script>
+<script src="model/js/script.js"></script>
 <script>
     function ordenarSelect(id_componente)
     {

@@ -44,7 +44,6 @@ function cerrarEliminar(){
 // FUNCION PARA ENVIAR ID DEL PRODUCTO Y RECIBIR LOS PRODUCTOS DE LA BD
 
 function buscarProducto(q){
-
 		$('#aausuario').slideToggle(800);
 		document.getElementById("fondo-atenuar").style.display = "block";
 		a = document.getElementById('aausuario');
@@ -115,9 +114,8 @@ function BuscarDS(){
 		}
 		ajax.send(null); 
 } 
-
+/*
 // BUSCAR POR CODIGO DE BARRA
-
 
 function  BuscarCodigoBarra(){
 	valorCodigoBarra = document.getElementById('valorCodigoBarra').value;
@@ -131,6 +129,7 @@ function  BuscarCodigoBarra(){
 		}
 		ajax.send(null); 
 }
+*/
 
 // BUSCAR PRODUCTOS DESDE EL ADMINISTRADOR POR CODIGO DE BARRA PARA EDITAR EL REGISTRO
 
