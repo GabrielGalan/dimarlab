@@ -39,11 +39,11 @@ error_reporting(E_ALL ^ E_NOTICE);
            $direccion = $_POST["imagenesH"];
         }
 
-   $inserta = new Guardar;
-   $registro = $inserta->registrar($idProducto, $nombreComercial, $codigoBarra, $codigoReferencia, $observacion, $marca, $claveCuadroBasico, $descripcionCuadroBasico, $direccion, $descripcionImagen, $salud, $claveSalud, $descripcionSalud, $proveedor);
+   $accion = new Guardar;
+   $registro = $accion->update($idProducto, $nombreComercial, $codigoBarra, $codigoReferencia, $observacion, $marca, $claveCuadroBasico, $descripcionCuadroBasico, $direccion, $descripcionImagen, $salud, $claveSalud, $descripcionSalud, $proveedor);
 
     class Guardar{
-    public function registrar($idProducto, $nombreComercial, $codigoBarra, $codigoReferencia, $observacion, $marca, $claveCuadroBasico, $descripcionCuadroBasico, $direccion, $descripcionImagen, $salud, $claveSalud, $descripcionSalud, $proveedor){
+    public function update($idProducto, $nombreComercial, $codigoBarra, $codigoReferencia, $observacion, $marca, $claveCuadroBasico, $descripcionCuadroBasico, $direccion, $descripcionImagen, $salud, $claveSalud, $descripcionSalud, $proveedor){
 
         $oConexion = new conectorDB; 
         $registrar = false; 
