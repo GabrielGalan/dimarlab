@@ -34,37 +34,19 @@
 		  <option>Numérico descendente</option>
 		</select>
 	</div>
-	</section>
+	</section> 
 	<section id="busqueda">
 	<h5>METODOS DE BUSQUEDAS</h5>
 		<form>
 		  <div class="form-group">
-		    <label for="codigoReferencia">Código de barra</label>
-		    <input class="form-control" type="text" id="buscarProducto" placeholder="Código de referencia" id="codigoReferencia">
+		    <label for="codigoReferencia">Buscar producto</label>
+		    <input class="form-control" type="text" id="buscarProducto" placeholder="Codigo barra, nombre, marca, referencia" id="codigoReferencia">
 		  </div>
-		  <div class="form-group">
-		    <label for="codigoReferencia">Código de referencia</label>
-		    <input class="form-control" type="text" onkeyup="BuscarCodigoReferencia();" id="valorCodigoReferencia" placeholder="Código de referencia" id="codigoReferencia">
-		  </div>
-		  <div class="form-group">
-		    <label for="nComercial">Nombre comercial</label>
-		    <input class="form-control" type="text" onkeyup="BuscarNombreComercial();" id="valorNombreComercial" placeholder="Nombre comercial" id="nComercial">
-		  </div>
-		  <div class="form-group">
-		    <label for="codigoReferencia">Descripción cuadro básico</label>
-		    <input class="form-control" type="text" onkeyup="BuscarDCB();" id="valorDCB" placeholder="Descripción cuadro básico" id="codigoReferencia">
-		  </div>
-		  <div class="form-group">
-		    <label for="codigoReferencia">Descripción secretaria de salud</label>
-		    <input class="form-control" type="text" onkeyup="BuscarDS();" id="valorDS" placeholder="Descripción salubridad" id="codigoReferencia">
-		  </div>
-		  <h5 id="mcent">MARCA</h5>
 	    </form>
 	</section>
-
 	<section id="productos">
-<?php include 'view/listadoPrincipalProductos.php';?>
-</section>
+		<?php include 'view/listadoPrincipalProductos.php';?>
+	</section>
 </section>
 
 </body>

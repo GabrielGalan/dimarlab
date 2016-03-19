@@ -8,7 +8,7 @@ $Consulta  = $oConectar->consultarBD($consulta);
 ?>
 <div class="table-responsive">
 	<table id="my-table" class="table">
-		
+		<tr>
 <?php foreach ($Consulta as $rows) {
 
 	$consultaImagen  = "SELECT * FROM imagen where idProducto = '$rows[idProducto])'";
@@ -27,7 +27,6 @@ $Consulta  = $oConectar->consultarBD($consulta);
 		$estado = "COMPLETO";
 	}
 	?>
-	<tr>
 		<td>
 			<div id="idProducto" onclick="buscarProducto(<?php print($rows['idProducto']);?>);" class="agregaP" style="cursor:pointer;">
 				<img src="<?php print($row['direccion']);?>">
@@ -38,8 +37,7 @@ $Consulta  = $oConectar->consultarBD($consulta);
 				<p class="consultaParrafo">Marca: <?php print($rowm['marca']);?></p>
 			</div>
 		</td>
-	</tr>	
 	<?php }?>
-		
+		</tr>
 	</table>
 	</div>

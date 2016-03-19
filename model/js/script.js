@@ -4,8 +4,9 @@ $(document).ready(function(){
 		// When value of the input is not blank
 		if( $(this).val() != "")
 		{
+			console.log('activo')
 			// Show only matching TR, hide rest of them
-			$("#my-table tbody>tr").hide();
+			$("#my-table tbody tr>td").hide();
 			$("#my-table td:contains-ci('" + $(this).val() + "')").parent("tr").show();
 		}
 		else
