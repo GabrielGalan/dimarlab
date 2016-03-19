@@ -25,16 +25,16 @@ $clProcuto  = new clProducto;
 $registro = $clProcuto->insert($nombreComercial, $codigoBarra, $codigoReferencia, $observacion, $claveCuadroBasico, $descripcionCuadroBasico, $direccion, $descripcionImagen, $idInstitucion, $idProveedor, $terminado,$descripcionInstitucion,$claveInstitucion,$idMarca,$idProveedor,$img,$descripcionImagen);
 		
 
-/*
-		if ($registrar !== false) 
-		{
-			return true;
-			$oConexion = null;
-		} 
-		else 
-		{
-			return false;
-		}*/
+
+	if ($registrar !== false) 
+	{
+		return true;
+		$oConexion = null;
+	} 
+	else 
+	{
+		return false;
+	}
 		echo " <SCRIPT LANGUAGE='javascript'>"
 		."    location.href = '../../administrador.php';"
 		."    </SCRIPT>"
