@@ -2,7 +2,7 @@
 include '../controller/php/clase.php';
 $idProducto       = $_GET['q'];
 $Conectar         = new conectorDB;//instanciamos conector
-$consultaProducto = "SELECT producto.idProducto, producto.nomComercial, producto.codigoBarra, producto.codigoReferencia, producto.observacion, producto.claveCuadroBasico, producto.descripcionCuadroBasico, tbl_marca.idProducto, tbl_marca.marca, tbl_proveedores.idProducto, tbl_proveedores.proveedor FROM producto JOIN ( tbl_marca, tbl_proveedores) where producto.idProducto = '$idProducto' AND  producto.idProducto = tbl_marca.idProducto and producto.idProducto = tbl_proveedores.idProducto";
+$consultaProducto = "SELECT * FROM producto p where idProducto=".$idProducto."";
 
 $ConsultaP = $Conectar->consultarBD($consultaProducto);
 
@@ -38,8 +38,11 @@ foreach ($ConsultaRImagen as $rowss) {
 	    </div>
 	<?php }?>
 		    <?php
-$consultaSalud  = "SELECT nombreInstitucion, claveSalud, descripcionSalud FROM tbl_salud where idProducto = '$idProducto'";
-$ConsultaRSalud = $Conectar->consultarBD($consultaSalud);
+$queryInstituciones  = "SELECT c.*,i.* FROM producto p
+ INNER JOIN clavesdescripciones c on c.idProducto = p.idProducto
+ INNER JOIN instituciones i on i.id = c.idInstitucion
+ WHERE p.idProducto=".$idProducto."";
+$ConsultaRSalud = $Conectar->consultarBD($queryInstituciones);
 ?>
 </div>
 
@@ -67,18 +70,43 @@ $ConsultaRSalud = $Conectar->consultarBD($consultaSalud);
 		<p><?php print($rows['claveCuadroBasico']);?></p>
 		<h5 class="desh5">Descripción cuadro básico</h5>
 		<p><?php print($rows['descripcionCuadroBasico']);?></p>
+		<h5 class="desh5">Instituciones de salud</h5>
+        <table>
+        <tr>
+        	<td>Nombre</td>
+            <td>Clave</td>
+            <td>Desc.</td>
+        </tr>
 	<?php foreach ($ConsultaRSalud as $row) {?>
-				<h5 class="desh5">Descripción salud</h5>
-				<p><?php print($row['nombreInstitucion']);?></p>
-				<h5 class="desh5">Clave <?php print($row['nombreInstitucion']);?></h5>
-				<p><?php print($row['claveSalud']);?></p>
-				<h5 class="desh5">Descripción <?php print($row['nombreInstitucion']);?></h5>
-				<p><?php print($row['descripcionSalud']);?></p>
+    <tr>
+				<td><?php print($row['nombre']);?></td>
+<!--				<h5 class="desh5">Clave</h5>-->
+				<td><?php print($row['claveInstitucion']);?></td>
+<!--				<h5 class="desh5"></h5>-->
+				<td><?php print($row['descripcionInstitucion']);?></td>
+                </tr>
 		<?php }?>
-		<h5 class="desh5">Proveedor del producto</h5>
-		<p><?php print($rows['proveedor']);?></p>
-		<h5 class="desh5">Marca</h5>
-		<p><?php print($rows['marca']);?></p>
+        </table>
+		<?php
+			$queryProveedores  = " SELECT * FROM proveedores p
+ INNER JOIN producto_proveedores pp on p.id = pp.idProveedor
+ WHERE pp.idProducto=".$idProducto.";";
+			$ResultProveedores = $Conectar->consultarBD($queryProveedores);
+        ?>
+		<h5 class="desh5">Proveedor(es) del producto</h5>
+        	<?php foreach ($ResultProveedores as $row) {?>
+				<p>*<?php print($row['proveedor']);?></p>
+		<?php }?>
+		<?php
+			$queryProveedores  = "SELECT * FROM marcas m
+ INNER JOIN producto_marcas pp on m.id = pp.idMarca
+ WHERE pp.idProducto=".$idProducto.";";
+			$ResultProveedores = $Conectar->consultarBD($queryProveedores);
+        ?>
+		<h5 class="desh5">Marca(s)</h5>
+        	<?php foreach ($ResultProveedores as $row) {?>
+				<p>*<?php print($row['marca']);?></p>
+		<?php }?>
 		<h5 class="desh5">Observaciones</h5>
 		<p><?php print($rows['observacion']);?>
 			<?php }?>

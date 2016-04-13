@@ -1,22 +1,17 @@
 <?php
 include 'controller/php/clase.php';
 
-$oConectar = new conectorDB;
-$consulta  = "SELECT * FROM producto";
-$Consulta  = $oConectar->consultarBD($consulta);
+$Conexion = new conectorDB;
+$queryProducto  = "SELECT * FROM producto p";
+
+$ResultProducto  = $Conexion->consultarBD($queryProducto);
 
 ?>
 <div class="table-responsive">
-	<table class="table">
+	<table id="my-table" class="table">
 		<tr>
-<?php foreach ($Consulta as $rows) {
+<?php foreach ($ResultProducto as $rows) {
 
-	$consultaImagen  = "SELECT * FROM imagen where idProducto = '$rows[idProducto])'";
-	$ConsultaRImagen = $oConectar->consultarBD($consultaImagen);
-	foreach ($ConsultaRImagen as $row) {}
-	$consultaMarca  = "SELECT * FROM tbl_marca where idProducto = '$rows[idProducto])'";
-	$ConsultaRMarca = $oConectar->consultarBD($consultaMarca);
-	foreach ($ConsultaRMarca as $rowm) {}
 	if ($rows['terminado'] == '0' or $rows['terminado'] == null) {
 		$banner = "banner incompleto";
 		$estado = "INCOMPLETO";
@@ -27,12 +22,19 @@ $Consulta  = $oConectar->consultarBD($consulta);
 	?>
 		<td>
 			<div id="idProducto" onclick="buscarProducto(<?php print($rows['idProducto']);?>);" class="agregaP" style="cursor:pointer;">
-				<img src="<?php print($row['direccion']);?>">
-				<div class="<?php print($banner);?>"><font><?php print($estado);
+            <?php 
+			$queryImg  = "SELECT * FROM imagen where idProducto = '$rows[idProducto])'";
+			$ResultImg = $Conexion->consultarBD($queryImg);
+			foreach ($ResultImg as $row) 
+			{?>
+            	<img src="<?php print($row['direccion']);?>">
+            <?php
+			break;
+			}
+			?>				<div class="<?php print($banner);?>"><font><?php print($estado);
 	?></font></div>
 				<p class="consultaParrafo p-marca"><?php print($rows['nomComercial']);?></p>
 				<p class="consultaParrafo">Código referencia: <?php print($rows['codigoReferencia']);?></p>
-				<p class="consultaParrafo">Marca: <?php print($rowm['marca']);?></p>
 			</div>
 		</td>
 	<?php }?>
